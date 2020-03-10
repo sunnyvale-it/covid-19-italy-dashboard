@@ -1,0 +1,37 @@
+version: "3"
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/data:/var/lib/grafana:rw
+      - ./grafana/conf/provisioning/datasources:/etc/grafana/provisioning/datasources
+    restart: always
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-worldmap-panel
+    depends_on: 
+      - postgres
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init/dbinit.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./postgres/initdata:/tmp:ro
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+  cron:
+    build: 
+      context: './cron/'
+    depends_on: 
+      - postgres
+    volumes:
+      - ./cron/schedules.crontab:/schedules.crontab
+
