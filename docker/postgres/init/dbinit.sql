@@ -1,3 +1,5 @@
+ALTER DATABASE postgres SET timezone TO 'Europe/Rome';
+
 set timezone TO 'Europe/Rome';
 
 CREATE TABLE public."dati-regioni"
