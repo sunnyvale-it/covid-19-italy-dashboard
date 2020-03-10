@@ -8,6 +8,7 @@ echo "Docker container has been started"
 # one-time DB initialization only
 if [ ! -f /container.env ]; then
     sleep 90
+    psql postgresql://postgres:postgres@postgres:5432/postgres -c "truncate public.\"dati-regioni\""
     export FIRST_DATE=$(date -d 'Mon Feb 24 00:00:00' +%Y-%m-%d)
     export CURRENT_DATE=$(date +%Y-%m-%d)
     export DATE_DIFF=$(dateutils.ddiff $CURRENT_DATE $FIRST_DATE)

@@ -4,14 +4,17 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - 3000:3000
+      - 80:3000
     volumes:
       - ./grafana/data:/var/lib/grafana:rw
       - ./grafana/conf/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/conf/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/conf/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/conf/grafana.ini:/etc/grafana/grafana.ini
     restart: always
     environment:
       - GF_INSTALL_PLUGINS=grafana-worldmap-panel
-    depends_on: 
+    depends_on:   
       - postgres
   postgres:
     image: postgres:latest
