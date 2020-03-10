@@ -1,3 +1,5 @@
+set timezone TO 'Europe/Rome';
+
 CREATE TABLE public."dati-regioni"
 (
     data timestamp,
