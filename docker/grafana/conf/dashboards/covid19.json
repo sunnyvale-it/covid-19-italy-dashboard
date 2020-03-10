@@ -50,7 +50,7 @@
       },
       "percentage": false,
       "pointradius": 2,
-      "points": false,
+      "points": true,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -210,6 +210,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Postgres",
+      "decimals": null,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -223,13 +224,13 @@
       "legend": {
         "alignAsTable": false,
         "avg": false,
-        "current": true,
+        "current": false,
         "max": false,
         "min": false,
         "rightSide": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
@@ -326,7 +327,7 @@
     "list": []
   },
   "time": {
-    "from": "now-7d/d",
+    "from": "now-15d/d",
     "to": "now-1d/d"
   },
   "timepicker": {
@@ -346,5 +347,5 @@
   "timezone": "",
   "title": "COVID-19 Italy status",
   "uid": "MGzQtnuZk",
-  "version": 1
+  "version": 3
 }
