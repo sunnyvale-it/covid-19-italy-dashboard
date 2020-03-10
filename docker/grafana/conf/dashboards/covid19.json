@@ -198,7 +198,7 @@
       "thresholds": "50",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Demographic infections in Italy",
+      "title": "Number people of currently infected in Italy",
       "type": "grafana-worldmap-panel",
       "unitPlural": "",
       "unitSingle": "",
@@ -347,5 +347,5 @@
   "timezone": "",
   "title": "COVID-19 Italy status",
   "uid": "MGzQtnuZk",
-  "version": 3
+  "version": 5
 }
