@@ -90,7 +90,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New affected in Italy by day",
+      "title": "New infected in Italy by day",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -281,7 +281,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "National trend (Italy) by day",
+      "title": "Italy's infections trend by day",
       "tooltip": {
         "shared": false,
         "sort": 0,
@@ -347,5 +347,5 @@
   "timezone": "",
   "title": "COVID-19 Italy status",
   "uid": "MGzQtnuZk",
-  "version": 5
+  "version": 6
 }
