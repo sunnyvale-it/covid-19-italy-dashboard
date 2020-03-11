@@ -198,7 +198,7 @@
       "thresholds": "50",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Number people of currently infected in Italy",
+      "title": "Number of people currently infected in Italy",
       "type": "grafana-worldmap-panel",
       "unitPlural": "",
       "unitSingle": "",
