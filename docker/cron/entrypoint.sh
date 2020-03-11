@@ -22,7 +22,7 @@ if [ ! -f /container.env ]; then
         rm -f /tmp/dpc-covid19-ita-regioni-${DATE}.csv
     done
     rm /tmp/*.csv
-    psql postgresql://postgres:postgres@postgres:5432/postgres -c "UPDATE public.\"dati-regioni\" SET data = data AT TIME ZONE 'Europe/Rome';"
+    #psql postgresql://postgres:postgres@postgres:5432/postgres -c "UPDATE public.\"dati-regioni\" SET data = data AT TIME ZONE 'Europe/Rome';"
 fi
 
 
