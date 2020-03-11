@@ -16,12 +16,11 @@ if [ ! -f /container.env ]; then
     do
         echo $i
         export DATE=$(date +%Y%m%d -d "$CURRENT_DATE -$i day")
-        echo "curl -s -o /tmp/dpc-covid19-ita-regioni-${DATE}.csv https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-${DATE}.csv"
-        curl -s -o /tmp/dpc-covid19-ita-regioni-${DATE}.csv https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-${DATE}.csv
+        echo "curl -vvv -s -o /tmp/dpc-covid19-ita-regioni-${DATE}.csv https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-${DATE}.csv"
+        curl -vvv -s -o /tmp/dpc-covid19-ita-regioni-${DATE}.csv https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni-${DATE}.csv
         psql postgresql://postgres:postgres@postgres:5432/postgres -c "\copy \"dati-regioni\" FROM '/tmp/dpc-covid19-ita-regioni-${DATE}.csv' WITH (FORMAT csv, DELIMITER ',', HEADER true);" 
         rm -f /tmp/dpc-covid19-ita-regioni-${DATE}.csv
     done
-    rm /tmp/*.csv
     #psql postgresql://postgres:postgres@postgres:5432/postgres -c "UPDATE \"dati-regioni\" SET data = data AT TIME ZONE 'Europe/Rome';"
 fi
 
