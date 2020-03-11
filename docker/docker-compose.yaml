@@ -25,7 +25,7 @@ services:
       - ./postgres/data:/var/lib/postgresql/data
       - ./postgres/init/dbinit.sql:/docker-entrypoint-initdb.d/schema.sql:ro
       - ./postgres/initdata:/tmp:ro
-      - ./postgres/conf/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+      #- ./postgres/conf/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
     restart: always
     environment:
       POSTGRES_USER: postgres

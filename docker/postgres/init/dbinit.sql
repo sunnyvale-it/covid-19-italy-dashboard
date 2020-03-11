@@ -2,7 +2,7 @@ ALTER DATABASE postgres SET timezone TO 'Europe/Rome';
 
 set timezone TO 'Europe/Rome';
 
-CREATE TABLE public."dati-regioni"
+CREATE TABLE "dati-regioni"
 (
     data timestamp,
     stato character varying,
@@ -26,6 +26,6 @@ CREATE TABLE public."dati-regioni"
 
 TABLESPACE pg_default;
 
-ALTER TABLE public."dati-regioni"
+ALTER TABLE "dati-regioni"
     OWNER to postgres;
 
