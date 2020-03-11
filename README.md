@@ -23,7 +23,7 @@ $ docker-compose up -d
 
 After all the containers are started, point your browser at http://\<docker host\> (in most cases http://localhost)
 
-After having accessed Grafana using your favoured browser, select the dashboard **COVID-19 Italy status** to display all the panels as shown below:
+After having accessed Grafana using your favorite browser, select the dashboard **COVID-19 Italy status** to display all the panels as shown below:
 
 ![alt](img/home.png)
 
