@@ -12,6 +12,8 @@ Thanks to the [open data](https://github.com/pcm-dpc/COVID-19) made available by
 
 The application automatically fetches historical  data at the container creation phase and updates them daily at 19:00 (Italian time).
 
+## How to run the application
+
 To run the application, just after having forked and cloned this repo, type:
 
 ```console
