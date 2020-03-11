@@ -1,0 +1,1 @@
+Empty dir, do not remove it
