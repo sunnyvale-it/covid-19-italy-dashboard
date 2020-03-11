@@ -15,7 +15,7 @@ The application automatically fetches historical  data at the container creation
 To run the application, just after having forked and cloned this repo, type:
 
 ```console
-$ cd covid-19-italy-dashboard
+$ cd covid-19-italy-dashboard/docker
 $ docker-compose up -d
 ```
 
