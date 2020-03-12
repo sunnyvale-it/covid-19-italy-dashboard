@@ -29,3 +29,5 @@ TABLESPACE pg_default;
 ALTER TABLE "dati-regioni"
     OWNER to postgres;
 
+
+COPY "dati-regioni" FROM PROGRAM 'curl "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv"' WITH (FORMAT csv, DELIMITER ',', HEADER true);

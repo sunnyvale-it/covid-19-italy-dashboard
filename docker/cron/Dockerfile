@@ -13,6 +13,18 @@ ADD run.sh /run.sh
 ADD entrypoint.sh /entrypoint.sh
 ADD load-data.sh /load-data.sh
 
+
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y tzdata
+    
+ENV TZ=Europe/Rome
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN dpkg-reconfigure --frontend noninteractive tzdata
+
  
 RUN chmod +x /run.sh /entrypoint.sh /load-data.sh
 
