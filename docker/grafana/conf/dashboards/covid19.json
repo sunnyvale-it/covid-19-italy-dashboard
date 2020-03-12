@@ -137,6 +137,7 @@
       ],
       "datasource": "Postgres",
       "decimals": 0,
+      "description": "",
       "esMetric": "Count",
       "gridPos": {
         "h": 21,
@@ -171,7 +172,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select data as time, lat, long, denominazione_regione, totale_attualmente_positivi as total from public.\"dati-regioni\" where date(data) = date(now() - INTERVAL '1 DAYS')",
+          "rawSql": "select data as time, lat, long, denominazione_regione, totale_attualmente_positivi as total from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE')",
           "refId": "A",
           "select": [
             [
@@ -198,7 +199,7 @@
       "thresholds": "50",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Number of people currently infected in Italy",
+      "title": "Number of people currently infected in Italy (last update $LAST_DATA_DATE)",
       "type": "grafana-worldmap-panel",
       "unitPlural": "",
       "unitSingle": "",
@@ -324,7 +325,33 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "2020-03-11T17:00:00Z",
+          "value": "2020-03-11T17:00:00Z"
+        },
+        "datasource": "Postgres",
+        "definition": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "LAST_DATA_DATE",
+        "options": [],
+        "query": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-15d/d",
@@ -347,5 +374,5 @@
   "timezone": "",
   "title": "COVID-19 Italy status",
   "uid": "MGzQtnuZk",
-  "version": 6
+  "version": 2
 }
