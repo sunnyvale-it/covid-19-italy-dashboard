@@ -43,4 +43,13 @@ services:
       - postgres
     volumes:
       - ./cron/schedules.crontab:/schedules.crontab
+  after-init:
+    build:
+      context: './after-init/'
+    depends_on: 
+      - postgres
+      - cron
+      - grafana
+    restart: on-failure:500
+    
 
