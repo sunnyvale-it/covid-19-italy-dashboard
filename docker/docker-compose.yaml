@@ -82,6 +82,8 @@ services:
     command: /bin/bash -c "envsubst < /etc/nginx/tmpl/grafana.conf.tmpl > /etc/nginx/conf.d/grafana.conf && exec nginx -g 'daemon off;'"
     ports:
       - 80:80
+    depends_on: 
+      - grafana
   certbot:
     image: certbot/certbot
     environment:
