@@ -6,7 +6,7 @@ services:
     container_name: grafana
     #image: grafana/grafana:latest
     ports:
-      - 80:3000
+      - 3000:3000
     volumes:
       - ./grafana/data:/home/grafana/data:rw
       - ./grafana/conf/provisioning/datasources:/etc/grafana/provisioning/datasources
@@ -52,5 +52,16 @@ services:
       - cron
       - grafana
     restart: on-failure:500
+  nginx:
+    image: nginx:1.17.9
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+    depends_on: 
+      - grafana
+  #certbot:
+  #  image: certbot/certbot
+    ports:
+      - 80:80
+      - 443:443
     
 
