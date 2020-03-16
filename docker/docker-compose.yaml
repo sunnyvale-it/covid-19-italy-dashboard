@@ -82,8 +82,9 @@ services:
       - ./certbot/data/conf:/etc/letsencrypt
       - ./certbot/data/www:/var/www/certbot
       - ./certbot/data/logs:/var/log/letsencrypt
-      - ./nginx/conf:/tmp/nginx/conf
-    entrypoint: /bin/sh -c "certbot certonly -n --agree-tos --email ${HTTPS_EMAIL} -d ${NGINX_FQDN} --webroot -w /var/www/certbot && envsubst < /etc/nginx/tmpl/ssl.conf.tmpl > /tmp/nginx/conf.d/ssl.conf"
+      - ./nginx/conf:/tmp/nginx/conf.d
+      - ./certbot/tmpl:/tmp/tmpl
+    entrypoint: /bin/sh -c "certbot certonly -n --agree-tos --email ${HTTPS_EMAIL} -d ${NGINX_FQDN} --webroot -w /var/www/certbot && envsubst < /tmp/tmpl/ssl.conf.tmpl > /tmp/nginx/conf.d/ssl.conf"
   
     
 
