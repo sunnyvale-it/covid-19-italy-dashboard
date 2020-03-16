@@ -56,12 +56,30 @@ services:
     image: nginx:1.17.9
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
+      - ./certbot/data/conf:/etc/letsencrypt
+      - ./certbot/data/www:/var/www/certbot
+      - ./nginx/cert/fullchain.pem:/etc/letsencrypt/live/${HTTPS_COMMON_NAME}/fullchain.pem
+      - ./nginx/cert/privkey.pem:/etc/letsencrypt/live/${HTTPS_COMMON_NAME}/privkey.pem
     depends_on: 
       - grafana
-  #certbot:
-  #  image: certbot/certbot
+      - certbot
+    environment:
+      - NGINX_FQDN=${NGINX_FQDN}
+      - HTTPS_COMMON_NAME=${HTTPS_COMMON_NAME}
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/grafana.conf.tmpl > /etc/nginx/conf.d/grafana.conf && exec nginx -g 'daemon off;'"
     ports:
       - 80:80
       - 443:443
+  certbot:
+    image: certbot/certbot
+    environment:
+      - NGINX_FQDN=${NGINX_FQDN}
+      - HTTPS_EMAIL=${HTTPS_EMAIL}
+    volumes:
+      - ./certbot/data/conf:/etc/letsencrypt
+      - ./certbot/data/www:/var/www/certbot
+      - ./certbot/data/logs:/var/log/letsencrypt
+    command: certonly -n --agree-tos --email ${HTTPS_EMAIL} -d ${NGINX_FQDN} --webroot -w /var/www/certbot 
+  
     
 
