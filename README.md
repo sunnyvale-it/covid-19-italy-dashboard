@@ -21,7 +21,7 @@ $ cd covid-19-italy-dashboard/docker
 $ docker-compose up -d
 ```
 
-After all the containers are started, point your browser at http://\<docker host\> (in most cases http://localhost)
+After all the containers are started, point your browser at http://\<docker host\>:3000 (in most cases http://localhost:3000)
 
 After having accessed Grafana using your favorite browser, select the dashboard **COVID-19 Italy status** to display all the panels as shown below:
 
