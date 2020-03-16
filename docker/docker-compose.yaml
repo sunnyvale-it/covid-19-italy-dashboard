@@ -58,8 +58,8 @@ services:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./certbot/data/conf:/etc/letsencrypt
       - ./certbot/data/www:/var/www/certbot
-      - ./nginx/cert/fullchain.pem:/etc/letsencrypt/live/${HTTPS_COMMON_NAME}/fullchain.pem
-      - ./nginx/cert/privkey.pem:/etc/letsencrypt/live/${HTTPS_COMMON_NAME}/privkey.pem
+      - ./nginx/cert/fullchain.pem:/dummy/fullchain.pem
+      - ./nginx/cert/privkey.pem:/dummy/privkey.pem
     depends_on: 
       - grafana
       - certbot
