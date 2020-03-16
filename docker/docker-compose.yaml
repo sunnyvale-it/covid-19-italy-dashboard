@@ -79,7 +79,7 @@ services:
     environment:
       - NGINX_FQDN=${NGINX_FQDN}
       - HTTPS_COMMON_NAME=${HTTPS_COMMON_NAME}
-    command: /bin/bash -c "envsubst < /etc/nginx/tmpl/grafana.conf.tmpl > /etc/nginx/conf.d/grafana.conf && envsubst < /etc/nginx/tmpl/ssl.conf.tmpl > /etc/nginx/conf.d/ssl.conf && exec nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst < /etc/nginx/tmpl/grafana.conf.tmpl > /etc/nginx/conf.d/grafana.conf && exec nginx -g 'daemon off;'"
     ports:
       - 80:80
   certbot:
