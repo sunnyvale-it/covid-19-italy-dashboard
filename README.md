@@ -18,6 +18,7 @@ To run the application, just after having forked and cloned this repo, type:
 
 ```console
 $ cd covid-19-italy-dashboard/docker
+$ vi .env # to change variables file according to your needs
 $ docker-compose up -d
 ```
 
