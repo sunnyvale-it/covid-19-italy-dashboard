@@ -11,6 +11,6 @@ server {
     }
 
     location / {
-        proxy_pass   http://grafana-upstream;
+        return 301 https://$host$request_uri;
     }
 }
