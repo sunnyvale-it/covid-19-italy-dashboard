@@ -80,7 +80,7 @@ services:
       - ./certbot/data/conf:/etc/letsencrypt
       - ./certbot/data/www:/var/www/certbot
       - ./certbot/data/logs:/var/log/letsencrypt
-    entrypoint: if [ -z "$(ls -A /etc/letsencrypt/live)" ]; then certbot certonly -n --agree-tos --email ${HTTPS_EMAIL} -d ${NGINX_FQDN} --webroot -w /var/www/certbot --post-hook "echo '################'"; fi
+    entrypoint: if [ -z \"$(ls -A /etc/letsencrypt/live)\" ]; then certbot certonly -n --agree-tos --email ${HTTPS_EMAIL} -d ${NGINX_FQDN} --webroot -w /var/www/certbot --post-hook "echo '################'"; fi
   
     
 
