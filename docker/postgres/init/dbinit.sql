@@ -19,7 +19,9 @@ CREATE TABLE "dati-regioni"
     dimessi_guariti integer,
     deceduti integer,
     totale_casi integer,
-    tamponi integer
+    tamponi integer,
+    note_it,
+    note_en
 )
 
 
