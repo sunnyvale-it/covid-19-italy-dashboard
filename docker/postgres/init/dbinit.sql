@@ -20,8 +20,8 @@ CREATE TABLE "dati-regioni"
     deceduti integer,
     totale_casi integer,
     tamponi integer,
-    note_it,
-    note_en
+    note_it character varying,
+    note_en character varying
 )
 
 
