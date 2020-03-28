@@ -1,161 +1,154 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "gnetId": null,
-    "graphTooltip": 0,
-    "id": 7,
-    "iteration": 1585233864587,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
-        "circleMaxSize": 30,
-        "circleMinSize": 2,
-        "colors": [
-          "#FFB357",
-          "#C4162A"
-        ],
-        "datasource": "Postgres",
-        "decimals": 0,
-        "description": "",
-        "esMetric": "Count",
-        "gridPos": {
-          "h": 21,
-          "w": 12,
-          "x": 0,
-          "y": 0
-        },
-        "hideEmpty": false,
-        "hideZero": false,
-        "id": 2,
-        "initialZoom": "6",
-        "locationData": "table",
-        "mapCenter": "custom",
-        "mapCenterLatitude": "41.8719",
-        "mapCenterLongitude": "12.5674",
-        "maxDataPoints": 1,
-        "mouseWheelZoom": false,
-        "options": {},
-        "showLegend": true,
-        "stickyLabels": false,
-        "tableQueryOptions": {
-          "geohashField": "geohash",
-          "labelField": "denominazione_regione",
-          "latitudeField": "lat",
-          "longitudeField": "long",
-          "metricField": "total",
-          "queryType": "coordinates"
-        },
-        "targets": [
-          {
-            "format": "table",
-            "group": [],
-            "metricColumn": "none",
-            "rawQuery": true,
-            "rawSql": "select data as time, lat, long, denominazione_regione, totale_attualmente_positivi as total from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE')",
-            "refId": "A",
-            "select": [
-              [
-                {
-                  "params": [
-                    "lat"
-                  ],
-                  "type": "column"
-                }
-              ]
-            ],
-            "table": "\"dati-regioni\"",
-            "timeColumn": "data",
-            "timeColumnType": "timestamp",
-            "where": [
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "iteration": 1585411216063,
+  "links": [],
+  "panels": [
+    {
+      "circleMaxSize": 30,
+      "circleMinSize": 2,
+      "colors": [
+        "#FFB357",
+        "#C4162A"
+      ],
+      "datasource": "Postgres",
+      "decimals": 0,
+      "description": "",
+      "esMetric": "Count",
+      "gridPos": {
+        "h": 21,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hideEmpty": false,
+      "hideZero": false,
+      "id": 2,
+      "initialZoom": "6",
+      "locationData": "table",
+      "mapCenter": "custom",
+      "mapCenterLatitude": "41.8719",
+      "mapCenterLongitude": "12.5674",
+      "maxDataPoints": 1,
+      "mouseWheelZoom": false,
+      "options": {},
+      "showLegend": true,
+      "stickyLabels": false,
+      "tableQueryOptions": {
+        "geohashField": "geohash",
+        "labelField": "denominazione_regione",
+        "latitudeField": "lat",
+        "longitudeField": "long",
+        "metricField": "total",
+        "queryType": "coordinates"
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select data as time, lat, long, denominazione_regione, totale_attualmente_positivi as total from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE')",
+          "refId": "A",
+          "select": [
+            [
               {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
+                "params": [
+                  "lat"
+                ],
+                "type": "column"
               }
             ]
-          }
-        ],
-        "thresholds": "50",
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "Currently infected in Italy (last update $LAST_DATA_DATE)",
-        "type": "grafana-worldmap-panel",
-        "unitPlural": "",
-        "unitSingle": "",
-        "valueName": "total"
-      }
-    ],
-    "schemaVersion": 22,
-    "style": "dark",
-    "tags": [],
-    "templating": {
-      "list": [
-        {
-          "allValue": null,
-          "current": {
-            "text": "2020-03-25T17:00:00Z",
-            "value": "2020-03-25T17:00:00Z"
-          },
-          "datasource": "Postgres",
-          "definition": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
-          "hide": 0,
-          "includeAll": false,
-          "label": null,
-          "multi": false,
-          "name": "LAST_DATA_DATE",
-          "options": [
-            {
-              "selected": true,
-              "text": "2020-03-25T17:00:00Z",
-              "value": "2020-03-25T17:00:00Z"
-            }
           ],
-          "query": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
-          "refresh": 0,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "tagValuesQuery": "",
-          "tags": [],
-          "tagsQuery": "",
-          "type": "query",
-          "useTags": false
+          "table": "\"dati-regioni\"",
+          "timeColumn": "data",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
         }
-      ]
-    },
-    "time": {
-      "from": "now-6h",
-      "to": "now"
-    },
-    "timepicker": {
-      "hidden": true,
-      "refresh_intervals": [
-        "5s",
-        "10s",
-        "30s",
-        "1m",
-        "5m",
-        "15m",
-        "30m",
-        "1h",
-        "2h",
-        "1d"
-      ]
-    },
-    "timezone": "",
-    "title": "Current Graphical data",
-    "uid": "Ab1qO2rWz",
-    "version": 3
-  }
+      ],
+      "thresholds": "50",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Currently infected in Italy (last update $LAST_DATA_DATE)",
+      "type": "grafana-worldmap-panel",
+      "unitPlural": "",
+      "unitSingle": "",
+      "valueName": "total"
+    }
+  ],
+  "schemaVersion": 22,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "2020-03-26T17:00:00Z",
+          "value": "2020-03-26T17:00:00Z"
+        },
+        "datasource": "Postgres",
+        "definition": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "LAST_DATA_DATE",
+        "options": [],
+        "query": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Current Graphical data",
+  "uid": "Ab1qO2rWz",
+  "version": 1
+}

@@ -469,7 +469,7 @@
             }
           ],
           "query": "select distinct data from public.\"dati-regioni\" order by data desc limit 1",
-          "refresh": 0,
+          "refresh": 1,
           "regex": "",
           "skipUrlSync": false,
           "sort": 0,
