@@ -509,7 +509,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(deceduti) as \"total\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata\n\torder by \n\t\tdata",
+          "rawSql": "select \n\tdata as time, \n\tsum(deceduti) as \"total\",\n\tsum(deceduti) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(deceduti) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t as \"today\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata\n\torder by \n\t\tdata",
           "refId": "A",
           "select": [
             [
@@ -608,5 +608,5 @@
   "variables": {
     "list": []
   },
-  "version": 5
+  "version": 6
 }
