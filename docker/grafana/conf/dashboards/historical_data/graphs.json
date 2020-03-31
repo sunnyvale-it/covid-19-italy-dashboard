@@ -107,7 +107,8 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "$$hashKey": "object:412",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -115,7 +116,8 @@
           "show": true
         },
         {
-          "format": "short",
+          "$$hashKey": "object:413",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -221,7 +223,8 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "$$hashKey": "object:248",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -229,6 +232,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:249",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -332,7 +336,8 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "$$hashKey": "object:335",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -340,6 +345,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:336",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -554,7 +560,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:203",
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -563,7 +569,7 @@
         },
         {
           "$$hashKey": "object:204",
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -585,7 +591,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-90d",
     "to": "now"
   },
   "timepicker": {
