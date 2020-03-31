@@ -120,7 +120,7 @@
           "$$hashKey": "object:413",
           "decimals": null,
           "format": "none",
-          "label": "%",
+          "label": "",
           "logBase": 1,
           "max": "100",
           "min": "0",
