@@ -114,7 +114,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "select data as time, totale_attualmente_positivi as total, denominazione_regione from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE') order by totale_attualmente_positivi\n",
+            "rawSql": "select data as time, totale_positivi as total, denominazione_regione from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE') order by totale_positivi\n",
             "refId": "A",
             "select": [
               [

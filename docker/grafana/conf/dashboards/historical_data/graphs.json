@@ -63,7 +63,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(nuovi_attualmente_positivi) as \"new infected\", \n\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t as \"test performed\"\n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
+          "rawSql": "select \n\tdata as time, \n\tsum(nuovi_positivi) as \"new infected\", \n\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t as \"test performed\"\n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
           "refId": "A",
           "select": [
             [
@@ -293,7 +293,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select data as time, sum(nuovi_attualmente_positivi) from public.\"dati-regioni\" group by data order by data",
+          "rawSql": "select data as time, sum(nuovi_positivi) from public.\"dati-regioni\" group by data order by data",
           "refId": "A",
           "select": [
             [
@@ -407,7 +407,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\t100 * sum(nuovi_attualmente_positivi) /\n\t(\n\t\t  \n\t\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t ) \n\t as \"% of infected on tests performed\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
+          "rawSql": "select \n\tdata as time, \n\t100 * sum(nuovi_positivi) /\n\t(\n\t\t  \n\t\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t ) \n\t as \"% of infected on tests performed\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
           "refId": "A",
           "select": [
             [

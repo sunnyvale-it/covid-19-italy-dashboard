@@ -403,7 +403,7 @@
             "group": [],
             "metricColumn": "none",
             "rawQuery": true,
-            "rawSql": "select data as time, sum(totale_attualmente_positivi) as \"Currently infected\" from \"dati-regioni\" where date(data) = date('$LAST_DATA_DATE') group by data",
+            "rawSql": "select data as time, sum(totale_positivi) as \"Currently infected\" from \"dati-regioni\" where date(data) = date('$LAST_DATA_DATE') group by data",
             "refId": "A",
             "select": [
               [

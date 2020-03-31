@@ -62,7 +62,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select data as time, lat, long, denominazione_regione, totale_attualmente_positivi as total from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE')",
+          "rawSql": "select data as time, lat, long, denominazione_regione, totale_positivi as total from public.\"dati-regioni\" where date(data) = date('$LAST_DATA_DATE')",
           "refId": "A",
           "select": [
             [
