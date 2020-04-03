@@ -24,6 +24,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Postgres",
+      "decimals": null,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -33,12 +34,14 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 6,
+      "id": 14,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
@@ -50,6 +53,7 @@
         "dataLinks": []
       },
       "percentage": false,
+      "pluginVersion": "6.6.2",
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
@@ -63,7 +67,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(nuovi_positivi) as \"new infected\", \n\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t as \"test performed\"\n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
+          "rawSql": "select \n\tdata as time, \n\tsum(ricoverati_con_sintomi  - dimessi_guariti ) as current,\n\tsum(ricoverati_con_sintomi) as total\nfrom \n\tpublic.\"dati-regioni\" \ngroup by \n\tdata \norder by \n\tdata desc",
           "refId": "A",
           "select": [
             [
@@ -91,9 +95,9 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New infected vs. test performed by day",
+      "title": "Hospitalised",
       "tooltip": {
-        "shared": true,
+        "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
@@ -107,24 +111,22 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:412",
-          "decimals": null,
+          "$$hashKey": "object:248",
           "format": "none",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
-          "$$hashKey": "object:413",
-          "decimals": null,
-          "format": "none",
-          "label": "",
+          "$$hashKey": "object:249",
+          "format": "short",
+          "label": null,
           "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
+          "max": null,
+          "min": null,
+          "show": false
         }
       ],
       "yaxis": {
@@ -263,7 +265,7 @@
         "y": 8
       },
       "hiddenSeries": false,
-      "id": 2,
+      "id": 6,
       "legend": {
         "avg": false,
         "current": false,
@@ -293,7 +295,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select data as time, sum(nuovi_positivi) from public.\"dati-regioni\" group by data order by data",
+          "rawSql": "select \n\tdata as time, \n\tsum(nuovi_positivi) as \"new infected\", \n\tsum(tamponi) - \t\n\t\t\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(tamponi) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t\t\t)\n\t as \"test performed\"\n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
           "refId": "A",
           "select": [
             [
@@ -321,7 +323,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New infected in Italy by day",
+      "title": "New infected vs. test performed by day",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -330,7 +332,6 @@
       "type": "graph",
       "xaxis": {
         "buckets": null,
-        "min": null,
         "mode": "time",
         "name": null,
         "show": true,
@@ -338,22 +339,24 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:335",
+          "$$hashKey": "object:412",
+          "decimals": null,
           "format": "none",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:336",
-          "format": "short",
-          "label": null,
+          "$$hashKey": "object:413",
+          "decimals": null,
+          "format": "none",
+          "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
+          "max": "100",
+          "min": "0",
+          "show": true
         }
       ],
       "yaxis": {
@@ -489,7 +492,7 @@
         "y": 16
       },
       "hiddenSeries": false,
-      "id": 12,
+      "id": 2,
       "legend": {
         "avg": false,
         "current": false,
@@ -507,7 +510,7 @@
       },
       "percentage": false,
       "pointradius": 2,
-      "points": false,
+      "points": true,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -519,7 +522,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(variazione_totale_positivi)\n\t as \"infected alteration\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
+          "rawSql": "select data as time, sum(nuovi_positivi) from public.\"dati-regioni\" group by data order by data",
           "refId": "A",
           "select": [
             [
@@ -547,7 +550,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Infected alteration (+/- compared to the day before)",
+      "title": "New infected in Italy by day",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -556,6 +559,7 @@
       "type": "graph",
       "xaxis": {
         "buckets": null,
+        "min": null,
         "mode": "time",
         "name": null,
         "show": true,
@@ -563,7 +567,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:143",
+          "$$hashKey": "object:335",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -572,7 +576,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:144",
+          "$$hashKey": "object:336",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -697,6 +701,118 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Postgres",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \n\tdata as time, \n\tsum(variazione_totale_positivi)\n\t as \"infected alteration\" \n\tfrom \n\t\t\"dati-regioni\" a\n\tgroup by \n\t\tdata \n\torder by \n\t\tdata",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "lat"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"dati-regioni\"",
+          "timeColumn": "data",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Infected alteration (+/- compared to the day before)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:143",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:144",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": false,
@@ -730,5 +846,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 3
 }
