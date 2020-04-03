@@ -67,7 +67,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(ricoverati_con_sintomi  - dimessi_guariti ) as current,\n\tsum(ricoverati_con_sintomi) as total\nfrom \n\tpublic.\"dati-regioni\" \ngroup by \n\tdata \norder by \n\tdata desc",
+          "rawSql": "select \n\tdata as time, \n\tsum(ricoverati_con_sintomi  - dimessi_guariti) - \n\t(sum(deceduti) -\n\t(\n\t\t\t\tselect \n\t\t\t\t\tsum(deceduti) \n\t\t\t\tfrom \n\t\t\t\t\t\"dati-regioni\" b\n\t\t\t\twhere \n\t\t\t\t\tdate(data) = date(a.data - INTERVAL '1 DAY') \n\t\t\t\tgroup by \n\t\t\t\t\tdata \n\t))\n\tas current,\n\tsum(ricoverati_con_sintomi) as total\nfrom \n\tpublic.\"dati-regioni\" a\ngroup by \n\tdata \norder by \n\tdata desc",
           "refId": "A",
           "select": [
             [
