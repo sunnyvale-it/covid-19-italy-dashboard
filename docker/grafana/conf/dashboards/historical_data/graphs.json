@@ -67,7 +67,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select \n\tdata as time, \n\tsum(ricoverati_con_sintomi) as total,\n\tsum(terapia_intensiva) as \"intensive care\"\nfrom \n\tpublic.\"dati-regioni\" a\ngroup by \n\tdata \norder by \n\tdata desc",
+          "rawSql": "select \n\tdata as time, \n\tsum(ricoverati_con_sintomi) as current,\n\tsum(terapia_intensiva) as \"intensive care\"\nfrom \n\tpublic.\"dati-regioni\" a\ngroup by \n\tdata \norder by \n\tdata desc",
           "refId": "A",
           "select": [
             [
