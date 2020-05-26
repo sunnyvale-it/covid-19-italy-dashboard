@@ -44,6 +44,7 @@ services:
       - postgres
     volumes:
       - ./cron/schedules.crontab:/schedules.crontab
+    restart: always
   after-init:
     build:
       context: './after-init/'
@@ -69,6 +70,7 @@ services:
     command: /bin/bash -c "sleep 60 && envsubst < /etc/nginx/tmpl/grafana.conf.tmpl > /etc/nginx/conf.d/grafana.conf && envsubst < /etc/nginx/tmpl/ssl.conf.tmpl > /etc/nginx/conf.d/ssl.conf && exec nginx -g 'daemon off;'"
     ports:
       - 443:443
+    restart: always
   nginx-http:
     image: nginx:1.17.9
     container_name: nginx-http
@@ -84,6 +86,7 @@ services:
       - 80:80
     depends_on: 
       - grafana
+    restart: always
   certbot:
     image: certbot/certbot
     environment:
