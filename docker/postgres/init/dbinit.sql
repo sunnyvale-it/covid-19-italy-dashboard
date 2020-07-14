@@ -19,11 +19,12 @@ CREATE TABLE "dati-regioni"
     nuovi_positivi integer,
     dimessi_guariti integer,
     deceduti integer,
+    casi_da_sospetto_diagnostico integer,
+    casi_da_screening integer,
     totale_casi integer,
     tamponi integer,
     casi_testati integer,
-    note_it character varying,
-    note_en character varying
+    note character varying
 )
 
 
