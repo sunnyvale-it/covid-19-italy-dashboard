@@ -15,7 +15,11 @@ echo "Job started at $timestamp"
 
 
 
-psql postgresql://postgres:postgres@postgres:5432/postgres -c "truncate \"dati-regioni\""
+
 curl -s https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv -o /tmp/dpc-covid19-ita-regioni.csv
-psql postgresql://postgres:postgres@postgres:5432/postgres -c "\COPY \"dati-regioni\" FROM '/tmp/dpc-covid19-ita-regioni.csv' WITH (FORMAT csv, DELIMITER ',', HEADER true);" 
-rm /tmp/dpc-covid19-ita-regioni.csv
+
+if test -f "/tmp/dpc-covid19-ita-regioni.csv"; then
+    psql postgresql://postgres:postgres@postgres:5432/postgres -c "truncate \"dati-regioni\""
+    psql postgresql://postgres:postgres@postgres:5432/postgres -c "\COPY \"dati-regioni\" FROM '/tmp/dpc-covid19-ita-regioni.csv' WITH (FORMAT csv, DELIMITER ',', HEADER true);" 
+    rm /tmp/dpc-covid19-ita-regioni.csv
+fi
