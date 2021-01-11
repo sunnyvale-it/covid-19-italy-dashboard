@@ -52,39 +52,12 @@
         },
         "overrides": []
       },
-      "folderId": 2,
-      "gridPos": {
-        "h": 12,
-        "w": 24,
-        "x": 0,
-        "y": 2
-      },
-      "headings": true,
-      "id": 3,
-      "limit": 30,
-      "links": [],
-      "query": "data",
-      "recent": false,
-      "search": true,
-      "starred": false,
-      "tags": [],
-      "title": "Infection statistics",
-      "type": "dashlist"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "folderId": 7,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 2
       },
       "headings": true,
       "id": 5,
@@ -104,6 +77,33 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Vaccination statistics",
+      "type": "dashlist"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "folderId": 2,
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "headings": true,
+      "id": 3,
+      "limit": 30,
+      "links": [],
+      "query": "data",
+      "recent": false,
+      "search": true,
+      "starred": false,
+      "tags": [],
+      "title": "Infection statistics",
       "type": "dashlist"
     }
   ],

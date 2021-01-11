@@ -15,7 +15,6 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 9,
     "links": [],
     "panels": [
       {
@@ -26,7 +25,8 @@
         "datasource": "Postgres",
         "fieldConfig": {
           "defaults": {
-            "custom": {}
+            "custom": {},
+            "unit": "none"
           },
           "overrides": []
         },
@@ -71,7 +71,7 @@
             "metricColumn": "none",
             "queryType": "randomWalk",
             "rawQuery": true,
-            "rawSql": "select data_somministrazione as time, sum(sesso_maschile)+sum(sesso_femminile) as total from \"somministrazione-vaccini\" group by data_somministrazione order by data_somministrazione asc",
+            "rawSql": "select data_somministrazione as time, sum(sesso_maschile)+sum(sesso_femminile) as \"Daily trend\" from \"somministrazione-vaccini\" group by data_somministrazione order by data_somministrazione asc",
             "refId": "A",
             "select": [
               [
@@ -115,7 +115,8 @@
         },
         "yaxes": [
           {
-            "format": "short",
+            "$$hashKey": "object:225",
+            "format": "none",
             "label": null,
             "logBase": 1,
             "max": null,
@@ -123,6 +124,7 @@
             "show": true
           },
           {
+            "$$hashKey": "object:226",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -151,5 +153,5 @@
     "timezone": "",
     "title": "Historical graphical data",
     "uid": "SO28x9aMk",
-    "version": 3
+    "version": 1
   }
