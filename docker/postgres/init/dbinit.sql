@@ -28,14 +28,32 @@ CREATE TABLE "dati-regioni"
     ingressi_terapia_intensiva integer,
     note_test character varying,
     note_casi character varying
-)
+);
+
+CREATE TABLE "somministrazione-vaccini"
+(
+    data_somministrazione timestamp,
+    area character varying,
+    fascia_anagrafica character varying,
+    sesso_maschile integer,
+    sesso_femminile integer,
+    categoria_operatori_sanitari_sociosanitari integer,
+    categoria_personale_non_sanitario integer,
+    categoria_ospiti_rsa integer
+    
+);
 
 
 
-TABLESPACE pg_default;
+
 
 ALTER TABLE "dati-regioni"
     OWNER to postgres;
 
+ALTER TABLE "somministrazione-vaccini"
+    OWNER to postgres;
+
 
 COPY "dati-regioni" FROM PROGRAM 'curl "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv"' WITH (FORMAT csv, DELIMITER ',', HEADER true);
+COPY "somministrazione-vaccini" FROM PROGRAM 'curl "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.csv"' WITH (FORMAT csv, DELIMITER ',', HEADER true);
+    

@@ -11,7 +11,6 @@ RUN apt-get update && \
 # Add files
 ADD run.sh /run.sh
 ADD entrypoint.sh /entrypoint.sh
-ADD load-data.sh /load-data.sh
 
 
 
@@ -26,6 +25,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
  
-RUN chmod +x /run.sh /entrypoint.sh /load-data.sh
+RUN chmod +x /run.sh /entrypoint.sh
 
 ENTRYPOINT /entrypoint.sh

@@ -2,5 +2,5 @@ SHELL=/bin/bash
 BASH_ENV=/container.env
 TZ="Europe/Rome"
 #* * * * * /run.sh >> /var/log/cron.log 2>&1
-0 20 * * * /work/load-data.sh >> /var/log/cron.log 2>&1
+*/10 * * * * /work/load-data.sh >> /var/log/cron.log 2>&1
 # This extra line makes it a valid cron

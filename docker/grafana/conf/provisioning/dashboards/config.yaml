@@ -9,17 +9,31 @@ providers:
    type: file
    options:
      path: /var/lib/grafana/dashboards/home
- - name: 'current_data'
+ - name: 'infection_statistics_current_data'
    orgId: 1
-   folder: 'Current data'
+   folder: 'Infection statistics'
    folderUid: ''
    type: file
    options:
-     path: /var/lib/grafana/dashboards/current_data
- - name: 'historical_data'
+     path: /var/lib/grafana/dashboards/infection_statistics/current_data
+ - name: 'infection_statistics_historical_data'
    orgId: 1
-   folder: 'Historical data'
+   folder: 'Infection statistics'
    folderUid: ''
    type: file
    options:
-     path: /var/lib/grafana/dashboards/historical_data
+     path: /var/lib/grafana/dashboards/infection_statistics/historical_data
+ - name: 'vaccination_statistics_current_data'
+   orgId: 1
+   folder: 'Vaccination statistics'
+   folderUid: ''
+   type: file
+   options:
+     path: /var/lib/grafana/dashboards/vaccination_statistics/current_data
+ - name: 'vaccination_statistics_historical_data'
+   orgId: 1
+   folder: 'Vaccination statistics'
+   folderUid: ''
+   type: file
+   options:
+     path: /var/lib/grafana/dashboards/vaccination_statistics/historical_data
