@@ -24,7 +24,10 @@ CREATE TABLE "dati-regioni"
     totale_casi integer,
     tamponi integer,
     casi_testati integer,
-    note character varying
+    note character varying,
+    ingressi_terapia_intensiva integer,
+    note_test character varying,
+    note_casi character varying
 )
 
 
