@@ -19,33 +19,6 @@
   "panels": [
     {
       "datasource": null,
-      "editable": true,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 1,
-      "links": [],
-      "options": {
-        "content": "# COVID-19 in Italy monitoring page",
-        "mode": "markdown"
-      },
-      "pluginVersion": "7.3.6",
-      "style": {},
-      "title": "",
-      "transparent": true,
-      "type": "text"
-    },
-    {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -57,7 +30,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 0
       },
       "headings": true,
       "id": 5,
@@ -92,7 +65,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 8
       },
       "headings": true,
       "id": 3,
@@ -147,5 +120,5 @@
   "timezone": "browser",
   "title": "COVID-19 in Italy home page",
   "uid": "f_iET9aGk",
-  "version": 2
+  "version": 3
 }
