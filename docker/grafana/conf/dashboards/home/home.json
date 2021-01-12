@@ -35,8 +35,8 @@
       "id": 1,
       "links": [],
       "options": {
-        "content": "<div class=\"dashboard-header\">\n  <span>COVID-19 in Italy monitoring page</span>\n</div>",
-        "mode": "html"
+        "content": "# COVID-19 in Italy monitoring page",
+        "mode": "markdown"
       },
       "pluginVersion": "7.3.6",
       "style": {},
@@ -147,5 +147,5 @@
   "timezone": "browser",
   "title": "COVID-19 in Italy home page",
   "uid": "f_iET9aGk",
-  "version": 1
+  "version": 2
 }
