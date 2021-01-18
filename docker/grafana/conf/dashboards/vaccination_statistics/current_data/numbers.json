@@ -215,7 +215,9 @@
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "",
   "title": "Current number data",
   "uid": "eQjt19-Gz",
