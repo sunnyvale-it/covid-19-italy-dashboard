@@ -27,20 +27,29 @@ CREATE TABLE "dati-regioni"
     note character varying,
     ingressi_terapia_intensiva integer,
     note_test character varying,
-    note_casi character varying
+    note_casi character varying,
+    totale_positivi_test_molecolare integer,
+    totale_positivi_test_antigenico_rapido integer,
+    tamponi_test_molecolare integer,
+    tamponi_test_antigenico_rapido integer,
+    codice_nuts_1 character varying,
+    codice_nuts_2 character varying
 );
 
 CREATE TABLE "somministrazione-vaccini"
 (
     data_somministrazione timestamp,
+    fornitore character varying,
     area character varying,
     fascia_anagrafica character varying,
     sesso_maschile integer,
     sesso_femminile integer,
     categoria_operatori_sanitari_sociosanitari integer,
     categoria_personale_non_sanitario integer,
-    categoria_ospiti_rsa integer
-    
+    categoria_ospiti_rsa integer,
+    categoria_over80 integer,
+    prima_dose integer,
+    seconda_dose integer
 );
 
 
