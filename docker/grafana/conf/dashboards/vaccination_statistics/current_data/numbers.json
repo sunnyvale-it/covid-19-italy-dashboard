@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1610983309375,
+  "iteration": 1611043518407,
   "links": [],
   "panels": [
     {
@@ -175,6 +175,88 @@
       "timeShift": null,
       "title": "Vaccinated by age (last update $LAST_DATA_DATE)",
       "type": "bargauge"
+    },
+    {
+      "datasource": "Postgres",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "displayName": "$__cell_0",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.3.6",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "queryType": "randomWalk",
+          "rawQuery": true,
+          "rawSql": "select\n\tfornitore,\n\tsum(sum) as sum\t\nfrom (\tselect \n\t\t\tdata_somministrazione, \n\t\t\tfornitore,\n\t\t\tsum(sesso_maschile+sesso_femminile)\n\t\tfrom \n\t\t\t\"somministrazione-vaccini\" \n\t\tgroup by \n\t\t\tdata_somministrazione,\n\t\t\tfornitore \n\t\torder by \n\t\t\tdata_somministrazione ) as test\ngroup by\n\tfornitore\norder by fornitore",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "lat"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"dati-regioni\"",
+          "timeColumn": "data",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Inoculation by supplier (last update $LAST_DATA_DATE)",
+      "type": "bargauge"
     }
   ],
   "schemaVersion": 26,
@@ -186,8 +268,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "2021-01-11T00:00:00Z",
-          "value": "2021-01-11T00:00:00Z"
+          "text": "2021-01-18T00:00:00Z",
+          "value": "2021-01-18T00:00:00Z"
         },
         "datasource": "Postgres",
         "definition": "select max(data_somministrazione) from \"somministrazione-vaccini\" limit 1",
