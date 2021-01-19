@@ -255,7 +255,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Inoculation by supplier (last update $LAST_DATA_DATE)",
+      "title": "Inoculated vaccines by supplier (last update $LAST_DATA_DATE)",
       "type": "bargauge"
     }
   ],
