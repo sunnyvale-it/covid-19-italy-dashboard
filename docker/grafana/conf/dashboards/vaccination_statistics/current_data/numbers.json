@@ -91,7 +91,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Vaccinated (last update $LAST_DATA_DATE)",
+      "title": "Inoculations (last update $LAST_DATA_DATE)",
       "type": "stat"
     },
     {
@@ -173,7 +173,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Vaccinated by age (last update $LAST_DATA_DATE)",
+      "title": "Inoculations by age (last update $LAST_DATA_DATE)",
       "type": "bargauge"
     },
     {
@@ -255,7 +255,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Inoculated vaccines by supplier (last update $LAST_DATA_DATE)",
+      "title": "Inoculations by vaccine supplier (last update $LAST_DATA_DATE)",
       "type": "bargauge"
     }
   ],
