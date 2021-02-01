@@ -49,7 +49,11 @@ CREATE TABLE "somministrazione-vaccini"
     categoria_ospiti_rsa integer,
     categoria_over80 integer,
     prima_dose integer,
-    seconda_dose integer
+    seconda_dose integer,
+    codice_NUTS1 character varying,
+    codice_NUTS2 character varying,
+    codice_regione_ISTAT character varying,
+    nome_area character varying
 );
 
 
