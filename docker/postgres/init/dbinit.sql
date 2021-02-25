@@ -48,6 +48,8 @@ CREATE TABLE "somministrazione-vaccini"
     categoria_personale_non_sanitario integer,
     categoria_ospiti_rsa integer,
     categoria_over80 integer,
+    categoria_forze_armate integer,
+    categoria_personale_scolastico integer,
     prima_dose integer,
     seconda_dose integer,
     codice_NUTS1 character varying,
