@@ -50,6 +50,7 @@ CREATE TABLE "somministrazione-vaccini"
     categoria_over80 integer,
     categoria_forze_armate integer,
     categoria_personale_scolastico integer,
+    categoria_altro integer,
     prima_dose integer,
     seconda_dose integer,
     codice_NUTS1 character varying,
